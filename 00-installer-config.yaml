@@ -1,0 +1,18 @@
+# This is the network config written by 'subiquity'
+#IMPORTANTE el rango 10.30.3.0 solo es para uso del VIRTUA30 correspondiente Cambiar 30 por Servidor
+network:
+  ethernets:
+    ens160: #Cambiar por el nombre de tu adaptador de red (Se puede ver con el comando ip a)
+      addresses:
+      - 10.30.3.30/24 #Cambiar la direccion 10.30.x.y X por tu grupo de vcenter Y por deseo
+      dhcp4: false
+      routes:
+        - to: default
+          via: 10.30.3.1 #Cambiar 10.30.X.1 X por grupo de Vcenter
+      nameservers:
+        addresses:
+          - 10.220.3.20 #DNS Primario segun manual del Vcenter
+          - 10.220.0.20 #DNS Secundario segun manual del Vcenter
+  version: 2
+#Hecho por Ivan Diaz Fernandez y descargado de https://github.com/ivaandf/ipcambiante.git
+#Actualizado a 09/11/2023 segun directrices del manual del Vcenter del CIFP de Aviles.
